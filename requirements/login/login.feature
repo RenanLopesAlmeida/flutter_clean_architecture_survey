@@ -1,16 +1,16 @@
 Feature: Login
 
-Como um cliente
-Quero poder acessar minha conta e me manter logado
-Para que eu possa ver e responder enquetes de forma rápida
+As a client
+I want to access my account and keep logged in
+to be allowed to quickly see and answer surveys
 
-Cenário: Credenciais Válidas
-Dado que o cliente informou credenciais Válidas
-quando solicitar para fazer Login
-Então o sistema deve enviar o usuário para a tela de pesquisas
-E manter o usuário conectado
+Scenario: Valid Credentials
+Client has informed its valid credentials
+when request to make login
+System must redirect user to research screen
+and keep user logged in
 
-Cenário: Credenciais Inválidas
-Dado que o cliente informou credencias Inválidas
-Quando solicitar para fazer Login
-Então o sistema deve retornar uma mensagem de erro
+Scenario: Invalid Credentials
+Client has informed its invalid credentials
+when request to make login
+System shall return an error message
