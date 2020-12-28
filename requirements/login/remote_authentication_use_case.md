@@ -10,13 +10,13 @@
 1. ✅ System throws an unexpected error message
 
 > ## Exception - Invalid Data
-1. ✅ System throws an unexpected error message (Status Code: 400)
+2. ✅ System throws an unexpected error message (Status Code: 400)
 
 > ## Exception - Invalid Answer
-1. System throws an unexpected error message
+3. System throws an unexpected error message
 
 > ## Exception - Server Fail 
-1. ✅ System throws an unexpected error message
+4. ✅ System throws an unexpected error message
 
 > ## Exception - Invalid Credentials
-1. System throws an unexpected error message informing that user credentials are invalid
+5. ✅ System throws an unexpected error message informing that user credentials are invalid
