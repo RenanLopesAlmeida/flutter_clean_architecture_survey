@@ -1,3 +1,5 @@
+import 'package:flutter/foundation.dart';
+
 import '../entities/account_entity.dart';
 
 abstract class Authentication {
@@ -8,5 +10,7 @@ class AuthenticationParams {
   final String email;
   final String password;
 
-  AuthenticationParams({this.email, this.password});
+  AuthenticationParams({@required this.email, @required this.password});
+
+  Map toJson() => {'email': email, 'password': password};
 }
