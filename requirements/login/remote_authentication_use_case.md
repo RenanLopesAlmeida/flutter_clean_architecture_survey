@@ -10,7 +10,7 @@
 1. Sistema retorna uma mensagem de erro
 
 > ## Exceção - Dados Invalidos
-1. Sistema retorna uma mensagem de erro inesperado
+1. ✅ System throws an unexpected error message (Status Code: 400)
 
 > ## Exceção - Resposta Invalida
 1. Sistema retorna mensagem de erro inesperado
