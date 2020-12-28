@@ -3,20 +3,20 @@
 > ## Case de sucesso
 1. ✅ System valids data
 2. ✅ System make a request to login api
-3. Sistema valida os dados recebidos da API
-4. Sistema entrega os dados da conta do usuario
+3. System valids data from API
+4. System deliver user account data
 
-> ## Exceção - URL invalida
-1. Sistema retorna uma mensagem de erro
+> ## Exception - Invalid URL
+1. ✅ System throws an unexpected error message
 
-> ## Exceção - Dados Invalidos
+> ## Exception - Invalid Data
 1. ✅ System throws an unexpected error message (Status Code: 400)
 
-> ## Exceção - Resposta Invalida
-1. Sistema retorna mensagem de erro inesperado
+> ## Exception - Invalid Answer
+1. System throws an unexpected error message
 
-> ## Exceção - Falha no Servidor
-1. Sistema retorna mensagem de erro inesperado
+> ## Exception - Fail Server
+1. System throws an unexpected error message
 
-> ## Exceção - Credenciais inválidas
-1. Sistema retorna mensagem de erro inesperado informando que as credenciais estão erradas
+> ## Exception - Invalid Credentials
+1. System throws an unexpected error message informing that user credentials are invalid
