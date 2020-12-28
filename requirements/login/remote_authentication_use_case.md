@@ -15,8 +15,8 @@
 > ## Exception - Invalid Answer
 1. System throws an unexpected error message
 
-> ## Exception - Fail Server
-1. System throws an unexpected error message
+> ## Exception - Server Fail 
+1. ✅ System throws an unexpected error message
 
 > ## Exception - Invalid Credentials
 1. System throws an unexpected error message informing that user credentials are invalid
