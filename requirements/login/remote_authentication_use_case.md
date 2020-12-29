@@ -3,8 +3,8 @@
 > ## Case de sucesso
 1. ✅ System valids data
 2. ✅ System make a request to login api
-3. System valids data from API
-4. System deliver user account data
+3. ✅ System valids data from API
+4. ✅ System deliver user account data
 
 > ## Exception - Invalid URL
 1. ✅ System throws an unexpected error message
