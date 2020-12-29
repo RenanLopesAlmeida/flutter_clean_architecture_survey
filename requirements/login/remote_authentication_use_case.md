@@ -13,7 +13,7 @@
 2. ✅ System throws an unexpected error message (Status Code: 400)
 
 > ## Exception - Invalid Answer
-3. System throws an unexpected error message
+3. ✅ System throws an unexpected error message
 
 > ## Exception - Server Fail 
 4. ✅ System throws an unexpected error message
