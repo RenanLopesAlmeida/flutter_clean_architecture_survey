@@ -5,7 +5,7 @@
 1. ✅ Request with valid http verb (post)
 2. ✅ Put the content type json in headers
 3. ✅ Call request with correct body
-4. Ok - 200 and answer with data
+4. ✅ Ok - 200 and answer with data
 5. No content - 204 and answer without data
 
 ## Errors
