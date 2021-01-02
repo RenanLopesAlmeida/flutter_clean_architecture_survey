@@ -11,9 +11,9 @@
 ## Errors
 
 1. ✅ Bad Request - 400
-2. Unauthorized - 401
-3. Forbidden - 403
-4. Not Found - 404
+2. ✅ Unauthorized - 401
+3. ✅ Forbidden - 403
+4. ✅ Not Found - 404
 5. ✅ Internal server error - 500
 
 ## Exception - Different status code from above
