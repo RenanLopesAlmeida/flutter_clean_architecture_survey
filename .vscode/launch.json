@@ -13,7 +13,8 @@
         {
             "name": "flutter_clean_architecture_survey",
             "request": "launch",
-            "type": "dart"
+            "type": "dart",
+            "program": "lib/main/main.dart"
         }
     ]
 }
