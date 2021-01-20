@@ -42,6 +42,10 @@ class _LoginPageState extends State<LoginPage> {
                   ],
                 ),
               );
+            } else {
+              if (Navigator.canPop(context)) {
+                Navigator.pop(context);
+              }
             }
           });
           return SingleChildScrollView(
