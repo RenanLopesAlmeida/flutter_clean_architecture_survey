@@ -60,10 +60,14 @@ class LoginPage extends StatelessWidget {
                           );
                         }),
                   ),
-                  RaisedButton(
-                    onPressed: null,
-                    child: Text('Login'.toUpperCase()),
-                  ),
+                  StreamBuilder<bool>(
+                      stream: presenter.isFormValidStream,
+                      builder: (context, snapshot) {
+                        return RaisedButton(
+                          onPressed: snapshot.hasData ? () {} : null,
+                          child: Text('Login'.toUpperCase()),
+                        );
+                      }),
                   FlatButton.icon(
                       onPressed: () {},
                       icon: Icon(Icons.person),
