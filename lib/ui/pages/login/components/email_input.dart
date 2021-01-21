@@ -8,20 +8,21 @@ class EmailInput extends StatelessWidget {
   Widget build(BuildContext context) {
     final presenter = Provider.of<LoginPresenter>(context);
     return StreamBuilder<String>(
-        stream: presenter.emailErrorStream,
-        builder: (_, snapshot) {
-          return TextFormField(
-            keyboardType: TextInputType.emailAddress,
-            onChanged: presenter.validateEmail,
-            decoration: InputDecoration(
-              labelText: 'Email',
-              errorText: snapshot.data?.isEmpty == true ? null : snapshot.data,
-              icon: Icon(
-                Icons.email,
-                color: Theme.of(context).primaryColorLight,
-              ),
+      stream: presenter.emailErrorStream,
+      builder: (_, snapshot) {
+        return TextFormField(
+          keyboardType: TextInputType.emailAddress,
+          onChanged: presenter.validateEmail,
+          decoration: InputDecoration(
+            labelText: 'Email',
+            errorText: snapshot.data?.isEmpty == true ? null : snapshot.data,
+            icon: Icon(
+              Icons.email,
+              color: Theme.of(context).primaryColorLight,
             ),
-          );
-        });
+          ),
+        );
+      },
+    );
   }
 }

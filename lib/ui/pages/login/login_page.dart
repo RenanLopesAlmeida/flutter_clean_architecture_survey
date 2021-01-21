@@ -56,37 +56,19 @@ class _LoginPageState extends State<LoginPage> {
                           Padding(
                             padding:
                                 const EdgeInsets.only(top: 8.0, bottom: 32),
-                            child: StreamBuilder<String>(
-                                stream: widget.presenter.passwordErrorStream,
-                                builder: (_, snapshot) {
-                                  return TextFormField(
-                                    obscureText: true,
-                                    onChanged:
-                                        widget.presenter.validatePassword,
-                                    decoration: InputDecoration(
-                                      labelText: 'Password',
-                                      errorText: snapshot.data?.isEmpty == true
-                                          ? null
-                                          : snapshot.data,
-                                      icon: Icon(
-                                        Icons.lock,
-                                        color:
-                                            Theme.of(context).primaryColorLight,
-                                      ),
-                                    ),
-                                  );
-                                }),
+                            child: PasswordInput(),
                           ),
                           StreamBuilder<bool>(
-                              stream: widget.presenter.isFormValidStream,
-                              builder: (context, snapshot) {
-                                return RaisedButton(
-                                  onPressed: snapshot.data == true
-                                      ? widget.presenter.auth
-                                      : null,
-                                  child: Text('Login'.toUpperCase()),
-                                );
-                              }),
+                            stream: widget.presenter.isFormValidStream,
+                            builder: (context, snapshot) {
+                              return RaisedButton(
+                                onPressed: snapshot.data == true
+                                    ? widget.presenter.auth
+                                    : null,
+                                child: Text('Login'.toUpperCase()),
+                              );
+                            },
+                          ),
                           FlatButton.icon(
                               onPressed: () {},
                               icon: Icon(Icons.person),
