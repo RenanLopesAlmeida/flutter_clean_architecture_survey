@@ -48,6 +48,16 @@ class _LoginPageState extends State<LoginPage> {
               }
             }
           });
+
+          widget.presenter.mainErrorStream.listen((error) {
+            if (error != null) {
+              return Scaffold.of(context).showSnackBar(SnackBar(
+                backgroundColor: Colors.red[900],
+                content: Text(error, textAlign: TextAlign.center),
+              ));
+            }
+          });
+
           return SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
