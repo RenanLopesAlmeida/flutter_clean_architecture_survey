@@ -14,7 +14,6 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   @override
   void dispose() {
-    // TODO: implement dispose
     super.dispose();
     widget.presenter.dispose();
   }
@@ -26,26 +25,9 @@ class _LoginPageState extends State<LoginPage> {
         builder: (context) {
           widget.presenter.isLoadingStream.listen((isLoading) {
             if (isLoading) {
-              showDialog(
-                context: context,
-                barrierDismissible: false,
-                builder: (context) => SimpleDialog(
-                  children: <Widget>[
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        CircularProgressIndicator(),
-                        SizedBox(height: 10),
-                        Text('Loading...', textAlign: TextAlign.center),
-                      ],
-                    ),
-                  ],
-                ),
-              );
+              showLoading(context);
             } else {
-              if (Navigator.canPop(context)) {
-                Navigator.pop(context);
-              }
+              hideLoading(context);
             }
           });
 
