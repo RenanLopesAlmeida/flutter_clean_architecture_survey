@@ -13,4 +13,9 @@ void main() {
     final sut = EmailValidation('any_field');
     expect(sut.validate(''), null);
   });
+
+  test('Should return null if email is null', () {
+    final sut = EmailValidation(null);
+    expect(sut.validate(null), null);
+  });
 }
