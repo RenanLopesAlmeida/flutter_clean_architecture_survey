@@ -1,6 +1,8 @@
 import 'dart:async';
+import 'package:meta/meta.dart';
 
-import 'package:flutter_clean_architecture_survey/domain/helpers/domain_error.dart';
+import '../../domain/helpers/domain_error.dart';
+import '../../ui/pages/pages.dart';
 
 import '../../domain/usecases/usecases.dart';
 
@@ -19,8 +21,9 @@ class LoginState {
       (email != null && password != null);
 }
 
-class StreamLoginPresenter {
-  StreamLoginPresenter({this.authentication, this.validation});
+class StreamLoginPresenter implements LoginPresenter {
+  StreamLoginPresenter(
+      {@required this.authentication, @required this.validation});
 
   final Validation validation;
   final Authentication authentication;
@@ -74,7 +77,7 @@ class StreamLoginPresenter {
     _update();
   }
 
-  void dispose(){
+  void dispose() {
     _controller.close();
     _controller = null;
   }
