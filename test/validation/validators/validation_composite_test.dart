@@ -1,30 +1,7 @@
-import 'package:flutter_clean_architecture_survey/validation/dependencies/dependencies.dart';
 import 'package:mockito/mockito.dart';
 import 'package:test/test.dart';
-
-import 'package:meta/meta.dart';
-import 'package:flutter_clean_architecture_survey/presentation/dependencies/dependencies.dart';
-
-class ValidationComposite implements Validation {
-  ValidationComposite(this.validations);
-
-  List<FieldValidation> validations;
-  @override
-  String validate({@required String field, @required String value}) {
-    String error;
-    final sameFieldValidation =
-        validations.where((v) => v.field == field).toList();
-
-    for (final validation in sameFieldValidation) {
-      error = validation.validate(value);
-      if (error?.isNotEmpty == true) {
-        return error;
-      }
-    }
-
-    return error;
-  }
-}
+import 'package:flutter_clean_architecture_survey/validation/dependencies/dependencies.dart';
+import 'package:flutter_clean_architecture_survey/validation/validators/validators.dart';
 
 class FieldValidationSpy extends Mock implements FieldValidation {}
 
@@ -77,7 +54,7 @@ void main() {
 
     final error = sut.validate(field: 'any_field', value: 'any_value');
 
-    expect(error, 'error_1');
+    expect(error, 'error_2');
   });
 
   test('Should return the first error of the same field', () {
