@@ -12,8 +12,10 @@ class ValidationComposite implements Validation {
   @override
   String validate({@required String field, @required String value}) {
     String error;
+    final sameFieldValidation =
+        validations.where((v) => v.field == field).toList();
 
-    for (final validation in validations) {
+    for (final validation in sameFieldValidation) {
       error = validation.validate(value);
       if (error?.isNotEmpty == true) {
         return error;
@@ -49,13 +51,13 @@ void main() {
     validation2 = FieldValidationSpy();
     validation3 = FieldValidationSpy();
 
-    when(validation1.field).thenReturn('any_field');
+    when(validation1.field).thenReturn('other_field');
     mockValidation1();
 
     when(validation2.field).thenReturn('any_field');
     mockValidation2();
 
-    when(validation3.field).thenReturn('other_field');
+    when(validation3.field).thenReturn('any_field');
     mockValidation3();
 
     sut = ValidationComposite([validation1, validation2, validation3]);
@@ -76,5 +78,15 @@ void main() {
     final error = sut.validate(field: 'any_field', value: 'any_value');
 
     expect(error, 'error_1');
+  });
+
+  test('Should return the first error of the same field', () {
+    mockValidation1('error_1');
+    mockValidation2('error_2');
+    mockValidation3('error_3');
+
+    final error = sut.validate(field: 'any_field', value: 'any_value');
+
+    expect(error, 'error_2');
   });
 }
