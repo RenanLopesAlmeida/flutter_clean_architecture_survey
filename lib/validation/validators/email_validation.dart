@@ -1,8 +1,12 @@
+import 'package:equatable/equatable.dart';
+
 import '../dependencies/dependencies.dart';
 
-class EmailValidation implements FieldValidation {
+class EmailValidation extends Equatable implements FieldValidation {
   const EmailValidation(this.field);
   final String field;
+
+  List<String> get props => [field];
 
   String validate(String value) {
     final regex = RegExp(
