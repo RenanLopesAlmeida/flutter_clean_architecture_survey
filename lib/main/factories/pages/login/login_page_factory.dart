@@ -3,5 +3,5 @@ import '../../../../main/factories/factories.dart';
 import '../../../../ui/pages/pages.dart';
 
 Widget createLoginPage() {
-  return LoginPage(createLoginPresenter());
+  return LoginPage(createGetxLoginPresenter());
 }
