@@ -6,7 +6,8 @@ import '../login_presenter.dart';
 class EmailInput extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final presenter = Provider.of<LoginPresenter>(context);
+    final presenter = Provider.of<LoginPresenter>(context, listen: false);
+
     return StreamBuilder<String>(
       stream: presenter.emailErrorStream,
       builder: (_, snapshot) {
