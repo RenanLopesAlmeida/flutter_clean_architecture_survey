@@ -188,11 +188,12 @@ void main() {
     await sut.auth();
   });
 
-  test('Should emit correct events on authentication success', () async {
+  test('Should change page on success', () async {
     sut.validateEmail(email);
     sut.validatePassword(password);
 
-    expectLater(sut.isLoadingStream, emits(true));
+    sut.navigateToStream
+        .listen(expectAsync1((page) => expect(page, '/surveys')));
 
     await sut.auth();
   });
