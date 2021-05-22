@@ -1,18 +1,10 @@
-import '../../../../main/factories/factories.dart';
-import '../../../../main/factories/usecases/authentication_factory.dart';
-import '../../../../presentation/presenters/stream_login_presenter.dart';
+import '../../../../presentation/presenters/presenters.dart';
 import '../../../../ui/pages/pages.dart';
-
-LoginPresenter createStreamLoginPresenter() {
-  return StreamLoginPresenter(
-    authentication: createRemoteAuthentication(),
-    validation: createLoginValidation(),
-  );
-}
+import '../../factories.dart';
 
 LoginPresenter createGetxLoginPresenter() {
-  return StreamLoginPresenter(
-    authentication: createRemoteAuthentication(),
-    validation: createLoginValidation(),
-  );
+  return GetxLoginPresenter(
+      authentication: createRemoteAuthentication(),
+      validation: createLoginValidation(),
+      saveCurrentAccount: createLocalSaveCurrentAccount());
 }

@@ -12,16 +12,19 @@ class GetxLoginPresenter extends GetxController implements LoginPresenter {
   GetxLoginPresenter({
     @required this.authentication,
     @required this.validation,
+    @required this.saveCurrentAccount,
   });
 
   final Validation validation;
   final Authentication authentication;
+  final SaveCurrentAccount saveCurrentAccount;
 
   String _email;
   String _password;
   var _emailError = RxString(null);
   var _passwordError = RxString(null);
   var _mainError = RxString(null);
+  var _navigateTo = RxString(null);
   var _isFormValid = false.obs;
   var _isLoading = false.obs;
 
@@ -34,6 +37,7 @@ class GetxLoginPresenter extends GetxController implements LoginPresenter {
   Stream<bool> get isLoadingStream => _isLoading.stream;
 
   Stream<String> get mainErrorStream => _mainError.stream;
+  Stream<String> get navigateToStream => _navigateTo.stream;
 
   void validateEmail(String email) {
     _email = email;
@@ -55,17 +59,19 @@ class GetxLoginPresenter extends GetxController implements LoginPresenter {
   }
 
   Future<void> auth() async {
-    _isLoading.value = true;
-
     try {
-      await authentication.auth(
-        AuthenticationParams(email: _email, password: _password),
-      );
+      _isLoading.value = true;
+      final account = await authentication.auth(AuthenticationParams(
+        email: _email,
+        password: _password,
+      ));
+
+      await saveCurrentAccount.save(account);
+      _navigateTo.value = '/surveys';
     } on DomainError catch (error) {
       _mainError.value = error.description;
+      _isLoading.value = false;
     }
-
-    _isLoading.value = false;
   }
 
   void dispose() {
