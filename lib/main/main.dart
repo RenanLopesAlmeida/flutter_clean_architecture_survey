@@ -32,7 +32,7 @@ class App extends StatelessWidget {
             transition: Transition.fadeIn),
         GetPage(
             name: '/surveys',
-            page: () => Scaffold(body: Text('Survey')),
+            page: () => Scaffold(body: Center(child: Text('Survey'))),
             transition: Transition.fadeIn),
       ],
     );
