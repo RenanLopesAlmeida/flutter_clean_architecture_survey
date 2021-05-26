@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_clean_architecture_survey/utils/i18n/i18n.dart';
 import 'package:get/route_manager.dart';
 import 'package:provider/provider.dart';
 
@@ -70,7 +71,7 @@ class LoginPage extends StatelessWidget {
                             FlatButton.icon(
                               onPressed: () {},
                               icon: Icon(Icons.person),
-                              label: Text('Create Account'),
+                              label: Text(R.strings.addAccount),
                             )
                           ],
                         ),
