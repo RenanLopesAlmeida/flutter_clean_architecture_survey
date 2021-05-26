@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:provider/provider.dart';
 
 import 'factories/factories.dart';
 import '../ui/components/components.dart';
 
 void main() {
+  Provider.debugCheckInvalidValueType = null;
   runApp(App());
 }
 
@@ -18,14 +20,20 @@ class App extends StatelessWidget {
       title: '4Dev',
       debugShowCheckedModeBanner: false,
       theme: createAppTheme(),
-      initialRoute: '/login',
+      initialRoute: '/',
       getPages: [
-        GetPage(name: '/login', page: () => createLoginPage()),
+        GetPage(
+            name: '/',
+            page: () => createSplashPage(),
+            transition: Transition.fade),
+        GetPage(
+            name: '/login',
+            page: () => createLoginPage(),
+            transition: Transition.fadeIn),
         GetPage(
             name: '/surveys',
-            page: () => Scaffold(
-                  body: Text('Survey'),
-                )),
+            page: () => Scaffold(body: Center(child: Text('Survey'))),
+            transition: Transition.fadeIn),
       ],
     );
   }
